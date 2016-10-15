@@ -78,13 +78,27 @@ Az oldalon a különböző szerepkörökhöz eltérő funkciók érhetőek el. M
 
 **Végpont tervezet:**
 > GET / :főoldal és bejelentkező oldal hibrid
+
 > POST / :belépési adatok küldése
+
 > GET /reg :regisztrációs oldal
+
 > POST /reg :regisztráció elküldése
+
 > POST /subject/rec :tárgyfelvétel
+
 > POST /subject/add :tárgy hozzáadása
+
 > GET /subject/list :tárgy hallgatóinak listázása
+
 > GET /subject/:id/comment :az adott tantárgy megjegyzésének szerkesztése
+
 > GET /group/list :csoport hallgatóinak listázása
+
 > POST /group/join :csoportba jelentkezés
+
 > GET /group/:id/comment :az adott csoport megjegyzésének szerkesztése
+
+> POST /subject/del/:id :tantárgy törlése
+
+> POST /group/del/:id :csoport törlése
