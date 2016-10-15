@@ -40,3 +40,9 @@ Egy Neptunt utánzó kis alkalmazást fogok megvalósítani, mely egy tanumányi
 ###Tárgyleadás hallgató jogkörrel
 
 ![tárgyleadás](https://cloud.githubusercontent.com/assets/22147821/19412512/8b5aa216-9318-11e6-9f8a-66987846c141.png)
+
+##Oldltérkép és Végpontok
+
+Az oldalon a különböző szerepkörökhöz eltérő funkciók érhetőek el. Minél magasabb körbe tartozik annál több választási lehetősége van az oldalon, ahogyan ezt a használati körök témakörben lefedtem, mely feljebb található.
+Oldaltérkép:
+>asd
