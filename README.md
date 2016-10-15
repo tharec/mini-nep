@@ -44,8 +44,8 @@ Egy Neptunt utánzó kis alkalmazást fogok megvalósítani, mely egy tanumányi
 ##Oldltérkép és Végpontok
 
 Az oldalon a különböző szerepkörökhöz eltérő funkciók érhetőek el. Minél magasabb körbe tartozik annál több választási lehetősége van az oldalon, ahogyan ezt a használati körök témakörben lefedtem, mely feljebb található.
-Oldaltérkép:
 
+**Oldaltérkép:**
 > **Publikus/Vendég:**
 > - Főoldal
 > - Bejelentkezés
@@ -59,6 +59,8 @@ Oldaltérkép:
 > - Tárgyfelvétel:
 >      + Csoportba jelentkezés
 >      + Csoport leadása
+> - Tárgyak listázása
+> - Csoportok listázása
 > 
 > **Tanár:**
 > - Főoldal
@@ -74,4 +76,15 @@ Oldaltérkép:
 > - Csoport törlése
 > - Csoport hallgatóinak listázása
 
-
+**Végpont tervezet:**
+> GET / :főoldal és bejelentkező oldal hibrid
+> POST / :belépési adatok küldése
+> GET /reg :regisztrációs oldal
+> POST /reg :regisztráció elküldése
+> POST /subject/rec :tárgyfelvétel
+> POST /subject/add :tárgy hozzáadása
+> GET /subject/list :tárgy hallgatóinak listázása
+> GET /subject/:id/comment :az adott tantárgy megjegyzésének szerkesztése
+> GET /group/list :csoport hallgatóinak listázása
+> POST /group/join :csoportba jelentkezés
+> GET /group/:id/comment :az adott csoport megjegyzésének szerkesztése
