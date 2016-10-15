@@ -39,4 +39,4 @@ Egy Neptunt utánzó kis alkalmazást fogok megvalósítani, mely egy tanumányi
 
 ###Tárgyleadás hallgató jogkörrel
 
-![tárgyleadás]()
+![tárgyleadás](https://cloud.githubusercontent.com/assets/22147821/19412512/8b5aa216-9318-11e6-9f8a-66987846c141.png)
