@@ -45,4 +45,33 @@ Egy Neptunt utánzó kis alkalmazást fogok megvalósítani, mely egy tanumányi
 
 Az oldalon a különböző szerepkörökhöz eltérő funkciók érhetőek el. Minél magasabb körbe tartozik annál több választási lehetősége van az oldalon, ahogyan ezt a használati körök témakörben lefedtem, mely feljebb található.
 Oldaltérkép:
->asd
+
+> **Publikus/Vendég:**
+> - Főoldal
+> - Bejelentkezés
+> - Regisztráció
+> 
+> **Hallgató:**
+> - Főoldal
+> - Bejelentkezés
+> - Kijelentkezés
+> - Regisztráció
+> - Tárgyfelvétel:
+>      + Csoportba jelentkezés
+>      + Csoport leadása
+> 
+> **Tanár:**
+> - Főoldal
+> - Bejelentkezés
+> - Kijelentkezés
+> - Regisztráció
+> - Tárgy létrehozása
+>      + megjegyzés hozzáfűzése
+> - Tárgy törlése
+> - Tárgy hallgatóinak listázása
+> - Csoport létrehozása
+>      + megjegyzés hozzáfűzése
+> - Csoport törlése
+> - Csoport hallgatóinak listázása
+
+
