@@ -16,7 +16,7 @@ Egy Neptunt utánzó kis alkalmazást fogok megvalósítani, mely egy tanumányi
 * bejelentkezni az oldalra
 * tantárgyat hozzáadni/törölni
 * csoportot létrehozni/törölni
-* csoportban lévő diákok listázása
+* csoportban lévő hallgatók listázása
 
 ##Nem funkcionális követelmények ismertetése
 * Biztonság: Jelszavak megfelelően elkódolt módon
@@ -27,4 +27,6 @@ Egy Neptunt utánzó kis alkalmazást fogok megvalósítani, mely egy tanumányi
 ##Szerepkörök ismertetése
 * **vendég**: lehetősége van regisztrálni a rendszerbe, nem képes csatlakozni csoportokhoz, nem tud tárgyat felvenni, és ezeket törölni sem tudja, megtekinteni sem tudja a csoportokat/tárgyakat
 * **hallgató**: a vendég funkcióin felül lehetősége van bejelentkezni, tárgyat felvenni, illetve leadni, ezzel együtt csoportba jelentkezni, illetve leadni, kilépni a rendszerből
-* **tanár**: a hallgató funkcióin felül lehetősége van tantárgy hozzáadásához, törléséhez, csoport létrehozásához, törléséhez
+* **tanár**: a hallgató funkcióin felül lehetősége van tantárgy hozzáadásához, törléséhez, csoport létrehozásához, törléséhez, illetve a csoportokban lévő hallgatók listázására
+
+![Alt text](C:\Users\retech\Desktop\aktorok.jpg)
