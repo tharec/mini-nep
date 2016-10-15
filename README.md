@@ -16,7 +16,6 @@ Egy Neptunt utánzó kis alkalmazást fogok megvalósítani, mely egy tanumányi
 * bejelentkezni az oldalra
 * tantárgyat hozzáadni/törölni
 * csoportot létrehozni/törölni
-* csoportok listázása
 * csoportban lévő diákok listázása
 
 ##Nem funkcionális követelmények ismertetése
