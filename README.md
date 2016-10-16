@@ -104,7 +104,7 @@ Az oldalon a különböző szerepkörökhöz eltérő funkciók érhetőek el. M
 > POST /group/del/:id :csoport törlése
 
 ##Adatmodell
-![model]()
+![model](https://cloud.githubusercontent.com/assets/22147821/19417962/fdeedc7e-93b9-11e6-8b91-977ea12d1f99.png)
 
 ##Adatbázisterv
-![ab_model](https://cloud.githubusercontent.com/assets/22147821/19417962/fdeedc7e-93b9-11e6-8b91-977ea12d1f99.png)
+![ab_model](https://cloud.githubusercontent.com/assets/22147821/19417963/fdf23c84-93b9-11e6-86c4-a150440bb9b0.png)
