@@ -110,3 +110,6 @@ Az oldalon a különböző szerepkörökhöz eltérő funkciók érhetőek el. M
 ![ab_model](https://cloud.githubusercontent.com/assets/22147821/19417963/fdf23c84-93b9-11e6-86c4-a150440bb9b0.png)
 
 ##Oldaltervek
+![reg](https://cloud.githubusercontent.com/assets/22147821/19418146/762b4c1e-93be-11e6-937b-864c3a42ec72.jpg)
+![login](https://cloud.githubusercontent.com/assets/22147821/19418144/76298302-93be-11e6-9aaa-deac3eaa8d8c.jpg)
+![main](https://cloud.githubusercontent.com/assets/22147821/19418145/762aca64-93be-11e6-973b-cec44e27bdda.jpg)
