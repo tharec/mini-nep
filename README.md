@@ -102,3 +102,9 @@ Az oldalon a különböző szerepkörökhöz eltérő funkciók érhetőek el. M
 > POST /subject/del/:id :tantárgy törlése
 
 > POST /group/del/:id :csoport törlése
+
+##Adatmodell
+![model]()
+
+##Adatbázisterv
+![ab_model](https://cloud.githubusercontent.com/assets/22147821/19417962/fdeedc7e-93b9-11e6-8b91-977ea12d1f99.png)
