@@ -1,35 +1,115 @@
-# AdonisJs Application
+# Mini Neptun Dokumentáció
 
-This repo is the pre-configured project structure to be used for creating ambitious web servers using AdonisJs.
+Egy Neptunt utánzó kis alkalmazást fogok megvalósítani, mely egy tanumányi rendszer alap tulajdnságaival és funkcióival fog bírni.
 
-> Make sure to star the official [framework repo](https://github.com/adonisjs/adonis-framework) or [tweet on twitter](https://twitter.com/intent/tweet?url=http://adonisjs.com&text=I%20am%20using%20AdonisJs,%20a%20practical%20MVC%20framework%20for%20nodejs&hashtags=nodejs,adonisframework) :wave:
+##Funkcionális követelmények ismertetése
 
-## Story
+**Vendégként legyen lehetőségem:**
+* regisztrálni az oldalra
 
-One day a :boy: wanted to write a web application to slowly turn it into a business and make some :moneybag: for better living. Being a Javascript lover, he decided to go with Node.js. 
+**Hallgatóként legyen lehetőségem:**
+* bejelentkezni az oldalra
+* tantárgyat felvenni/leadni
+* csoporthoz csatlakozni/kilépni belőle
 
-Hosting Node.js applications are cheap and offers lots of mordern programming concepts to build realtime data rich applications.
+**Tanárként legyen lehetőségem:**
+* bejelentkezni az oldalra
+* tantárgyat hozzáadni/törölni
+* csoportot létrehozni/törölni
+* csoportban lévő hallgatók listázása
 
-He was so excited and full of energy to build this application and share it with the world. But soon his dreams started struggling with the amount of decisions he has to make, just to build an MVP of his idea. These decisions were not even related to the business and was about.
+##Nem funkcionális követelmények ismertetése
+* Biztonság: Jelszavak megfelelően elkódolt módon
+* Gyors működés
+* Karbantarthatóság: könnyű továbbfejlesztés, további funkciókkal való bővítés
+* Korszerű megjelenés
 
-1. How should I structure my application?
-2. Why do I need to download 20 modules just to start an HTTP server, parse request body and upload files.
-3. How should I manage the authentication on website, and expose public API for others to interact with the data?
-4. What do I need to do to secure my application from web attacks and how to handle CORS?
-5. Why do I have ton of `require` statements everywhere?
-6. How the heck should I test my code? I am having hard time mocking dependencies.
-7. **WHY THE :fish:** there are no standards to write some code. Hell I am not going to write this application and going for a walk.
+##Szerepkörök ismertetése
+* **vendég**: lehetősége van regisztrálni a rendszerbe, nem képes csatlakozni csoportokhoz, nem tud tárgyat felvenni, és ezeket törölni sem tudja, megtekinteni sem tudja a csoportokat/tárgyakat
+* **hallgató**: a vendég funkcióin felül lehetősége van bejelentkezni, tárgyat felvenni, illetve leadni, ezzel együtt csoportba jelentkezni, illetve leadni, kilépni a rendszerből
+* **tanár**: a hallgató funkcióin felül lehetősége van tantárgy hozzáadásához, törléséhez, csoport létrehozásához, törléséhez, illetve a csoportokban lévő hallgatók listázására
 
+###Szerepkörök hierarchikus használati diagramja
 
-## Not Anymore
+![aktorok](https://cloud.githubusercontent.com/assets/22147821/19412376/083c3ee2-9315-11e6-9033-a5f6f9d798d0.png)
 
-This is so frustating. Node.js is a beautiful language but all of the above questions have never been answered together. We all love writing small concise modules but business are not created by downloading 20 modules.
+###Tárgyfelvétel hallgató jogkörrel
 
-Developers needs productive tools, so that they can focus on what matters, and not on downloading & finding the best ways to combine these small modules. 
+![tárgyfelvétel](https://cloud.githubusercontent.com/assets/22147821/19412468/53b0032a-9317-11e6-8490-5f5988000940.png)
 
-## AdonisJs
+###Tárgyleadás hallgató jogkörrel
 
-AdonisJs is a beautiful framework with pre-configured answers to all of your questions. We not only created this framework, but validated the features of framework with realtime problems and still improving every bit, so that you have to write less and structured code.
+![tárgyleadás](https://cloud.githubusercontent.com/assets/22147821/19412512/8b5aa216-9318-11e6-9f8a-66987846c141.png)
 
-This time a :boy: will write his ambitious application and will set the world on :fire:``. Don't hesitate to work on your ideas and we promise to improve the framework every :sunny: and :first_quarter_moon_with_face: and YESSSS do not forget to star us on [:octocat:](https://github.com/adonisjs/adonis-framework)
+##Oldltérkép és Végpontok
 
+Az oldalon a különböző szerepkörökhöz eltérő funkciók érhetőek el. Minél magasabb körbe tartozik annál több választási lehetősége van az oldalon, ahogyan ezt a használati körök témakörben lefedtem, mely feljebb található.
+
+**Oldaltérkép:**
+> **Publikus/Vendég:**
+> - Főoldal
+> - Bejelentkezés
+> - Regisztráció
+> 
+> **Hallgató:**
+> - Főoldal
+> - Bejelentkezés
+> - Kijelentkezés
+> - Regisztráció
+> - Tárgyfelvétel:
+>      + Csoportba jelentkezés
+>      + Csoport leadása
+> - Tárgyak listázása
+> - Csoportok listázása
+> 
+> **Tanár:**
+> - Főoldal
+> - Bejelentkezés
+> - Kijelentkezés
+> - Regisztráció
+> - Tárgy létrehozása
+>      + megjegyzés hozzáfűzése
+> - Tárgy törlése
+> - Tárgy hallgatóinak listázása
+> - Csoport létrehozása
+>      + megjegyzés hozzáfűzése
+> - Csoport törlése
+> - Csoport hallgatóinak listázása
+
+**Végpont tervezet:**
+> GET / :főoldal és bejelentkező oldal hibrid
+
+> POST / :belépési adatok küldése
+
+> GET /reg :regisztrációs oldal
+
+> POST /reg :regisztráció elküldése
+
+> POST /subject/rec :tárgyfelvétel
+
+> POST /subject/add :tárgy hozzáadása
+
+> GET /subject/list :tárgy hallgatóinak listázása
+
+> GET /subject/:id/comment :az adott tantárgy megjegyzésének szerkesztése
+
+> GET /group/list :csoport hallgatóinak listázása
+
+> POST /group/join :csoportba jelentkezés
+
+> GET /group/:id/comment :az adott csoport megjegyzésének szerkesztése
+
+> POST /subject/del/:id :tantárgy törlése
+
+> POST /group/del/:id :csoport törlése
+
+##Adatmodell
+![model](https://cloud.githubusercontent.com/assets/22147821/19417962/fdeedc7e-93b9-11e6-8b91-977ea12d1f99.png)
+
+##Adatbázisterv
+![ab_model](https://cloud.githubusercontent.com/assets/22147821/19417963/fdf23c84-93b9-11e6-86c4-a150440bb9b0.png)
+
+##Oldaltervek
+![reg](https://cloud.githubusercontent.com/assets/22147821/19418146/762b4c1e-93be-11e6-937b-864c3a42ec72.jpg)
+![login](https://cloud.githubusercontent.com/assets/22147821/19418144/76298302-93be-11e6-9aaa-deac3eaa8d8c.jpg)
+![main](https://cloud.githubusercontent.com/assets/22147821/19418145/762aca64-93be-11e6-973b-cec44e27bdda.jpg)
