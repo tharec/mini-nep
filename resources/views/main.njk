@@ -1,0 +1,42 @@
+{% extends 'ind' %}
+
+{% block scripts %}
+<script src="/scripts/main.js"></script>
+{% endblock %}
+
+{% block content %}
+<h2>Üdv, {{ currentUser.username }}!</h2>
+
+<!--<div class="row">
+    {% for subject in subjects %}
+    <div class="panel panel-primary">
+        <div class="panel-heading">{{ subject.name }}</div>
+        <p>{{ subject.teachersOf[0].name }}</p>
+    </div>
+    {% endfor %}
+</div>-->
+
+<div class="row">
+
+  {% for subject in subjects %}
+  <div class="col-lg-4 col-md-6 col-sm-12">
+    <div class="panel panel-primary">
+      <div class="panel-heading">{{ subject.name }} ( {{ subject.teachersOf[0]['name'] }} )</div>
+      <ul class="list-group">
+        {% for student in students %}
+        <li class="list-group-item">
+          <a href="/student/{{ student.id }}">
+            {{ student.name }}
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+  {% endfor %}
+
+</div>
+
+<!--<p>{{subjects|dump}}</p>-->
+<!--<p>{{emails|dump}}</p>-->
+{% endblock %}
