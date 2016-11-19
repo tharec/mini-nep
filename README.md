@@ -128,6 +128,8 @@ Az oldalon a különböző szerepkörökhöz eltérő funkciók érhetőek el. M
 ![ab_model](https://cloud.githubusercontent.com/assets/22147821/19417963/fdf23c84-93b9-11e6-86c4-a150440bb9b0.png)
 
 ##Oldaltervek
-![reg](https://cloud.githubusercontent.com/assets/22147821/19418146/762b4c1e-93be-11e6-937b-864c3a42ec72.jpg)
-![login](https://cloud.githubusercontent.com/assets/22147821/19418144/76298302-93be-11e6-9aaa-deac3eaa8d8c.jpg)
-![main](https://cloud.githubusercontent.com/assets/22147821/19418145/762aca64-93be-11e6-973b-cec44e27bdda.jpg)
+![reg](https://cloud.githubusercontent.com/assets/22147821/20459271/681cec5a-aebb-11e6-8e35-c000c81130e1.PNG)
+![login](https://cloud.githubusercontent.com/assets/22147821/20459270/681cba00-aebb-11e6-9618-71c2386e7e6b.PNG)
+![subject](https://cloud.githubusercontent.com/assets/22147821/20459269/681c0d08-aebb-11e6-9bfe-d41dc9804e5e.PNG)
+![new_sub](https://cloud.githubusercontent.com/assets/22147821/20459268/681641e8-aebb-11e6-98bf-89d14c735e87.PNG)
+![lobby](https://cloud.githubusercontent.com/assets/22147821/20459267/6813aaa0-aebb-11e6-9ee7-371c6145cbc1.PNG)
