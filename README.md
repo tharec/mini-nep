@@ -58,7 +58,6 @@ Az oldalon a különböző szerepkörökhöz eltérő funkciók érhetőek el. M
 > - Regisztráció
 > - Tárgyfelvétel:
 >      + Csoportba jelentkezés
->      + Csoport leadása
 > - Tárgyak listázása
 > - Csoportok listázása
 > 
@@ -77,31 +76,28 @@ Az oldalon a különböző szerepkörökhöz eltérő funkciók érhetőek el. M
 > - Csoport hallgatóinak listázása
 
 **Végpont tervezet:**
-> GET / :főoldal és bejelentkező oldal hibrid
-
-> POST / :belépési adatok küldése
-
-> GET /reg :regisztrációs oldal
-
-> POST /reg :regisztráció elküldése
-
-> POST /subject/rec :tárgyfelvétel
-
-> POST /subject/add :tárgy hozzáadása
-
-> GET /subject/list :tárgy hallgatóinak listázása
-
-> GET /subject/:id/comment :az adott tantárgy megjegyzésének szerkesztése
-
-> GET /group/list :csoport hallgatóinak listázása
-
-> POST /group/join :csoportba jelentkezés
-
-> GET /group/:id/comment :az adott csoport megjegyzésének szerkesztése
-
-> POST /subject/del/:id :tantárgy törlése
-
-> POST /group/del/:id :csoport törlése
+> GET / :főoldal
+> GET /login :belépési pont
+> POST /login :belépés
+> GET /register :regisztrációs oldal
+> POST /register :regisztráció elküldése
+> GET /logout :kijeletkezés
+> GET /applyLecture :tárgyfelvétel
+> POST /applyLecture :adatok véglegesítése
+> GET /addLecture :tárgy hozzáadása
+> POST /addLecture :adatok véglegesítése
+> GET /subject/:id :tantárgy oldala
+> GET /subject/:id/delete :tantárgy törlése
+> POST /subject/:id :csoport felvétele
+> GET /subject/:id/comment :komment írása a tantárgyhoz
+> POST /subject/:id/comment :adatok elküldése
+> GET /subject/:id/deleteComments :összekomment törlése
+> GET /subject/:id/edit :tantárgy adatainak szerkesztése
+> POST /subject/:id/edit :adatok elküldése/végelgesítés
+> GET /subject/:id/dropSubject :tantárgy leadása
+> GET /subject/:sub_id/:gro_id/edit :csoport adatainak szerkesztése
+> POST /subject/:sub_id/:gro_id/edit :adatok elküldése/végelgesítés
+> GET /subject/:sub_id/:gro_id/delete :csoport törlése
 
 ##Adatmodell
 ![model](https://cloud.githubusercontent.com/assets/22147821/19417962/fdeedc7e-93b9-11e6-8b91-977ea12d1f99.png)
