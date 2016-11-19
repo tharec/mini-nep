@@ -8,7 +8,7 @@ class Group extends Lucid {
     }
 
     group_student(){
-        return this.belongsTo('App/Model/GroupStudent')
+        return this.belongsTo('App/Model/GroupsStudent')
     }
 }
 

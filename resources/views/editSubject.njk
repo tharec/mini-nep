@@ -1,17 +1,7 @@
-{% extends 'ind' %}
-
-{% block scripts %}
-<script src="/scripts/main.js"></script>
-{% endblock %}
+{% extends "ind" %}
 
 {% block content %}
-<div class="panel panel-info col-md-7 col-md-offset-2">
-<div class="panel-heading">
-<h2 class="panel-title">BEJELENTKEZÉS</h2>
-</div>
-
-<div class="panel-body">
-
+<h2>{{subject.name}} Módosítása</h2>
 
 {% if old('errors') %}
 <div class="panel panel-danger">
@@ -34,17 +24,18 @@
   {{ csrfField }}
 
   <div class="form-group">
-    <label for="email" class="col-lg-2 control-label">Email</label>
+    <label for="subject_name" class="col-lg-2 control-label">Csoport neve</label>
     <div class="col-lg-10">
-      <input type="text" class="form-control" id="email" name="email" placeholder="Email" value="{{old('email')}}">
+      <input type="text" class="form-control" id="subject_name" name="subject_name" placeholder="Tantárgy neve" value="{{subject.name}}">
     </div>
   </div>
   <div class="form-group">
-    <label for="password" class="col-lg-2 control-label">Jelszó</label>
+    <label for="comments" class="col-lg-2 control-label">Kommentek</label>
     <div class="col-lg-10">
-      <input type="password" class="form-control" id="password" name="password" placeholder="Jelszó" value="">
+      <textarea class="form-control" rows="3" id="comments" name="comments">{{subject.comments}}</textarea>
     </div>
   </div>
+
   <div class="form-group">
     <div class="col-lg-10 col-lg-offset-2">
       <button type="reset" class="btn btn-default">Mégsem</button>
@@ -52,6 +43,5 @@
     </div>
   </div>
 </form>
-</div>
-</div>
+
 {% endblock %}

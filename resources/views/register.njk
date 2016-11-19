@@ -1,7 +1,11 @@
 {% extends "ind" %}
 
 {% block content %}
+<div class="panel panel-info col-md-7 col-md-offset-2">
+<div class="panel-heading">
 <h2>REGISZTRÁCIÓ</h2>
+</div>
+<div class="panel-body">
 
 {% if old('errors') %}
 <div class="panel panel-danger">
@@ -42,7 +46,7 @@
     </div>
   </div>
   <div class="form-group">
-    <label for="password_confirm" class="col-lg-2 control-label">Jelszó</label>
+    <label for="password_confirm" class="col-lg-2 control-label">Jelszó Újra</label>
     <div class="col-lg-10">
       <input type="password" class="form-control" id="password_confirm" name="password_confirm" placeholder="Jelszó" value="">
     </div>
@@ -60,5 +64,6 @@
     </div>
   </div>
 </form>
-
+</div>
+</div>
 {% endblock %}

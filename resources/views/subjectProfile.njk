@@ -3,20 +3,68 @@
 {% block content %}
 <h2>{{ subject.name }}</h2>
 <p>Oktató: {{ subject.teacher.name }}</p>
-<h3>Kommentek</h3>
-<pre>
-{{ subject.comments }}
-</pre>
+<div class="panel panel-default">
+    <div class="panel-heading">
+    <h3>Kommentek</h3>
+    <pre>
+    {{ subject.comments }}
+    </pre>
+    <a href="/subject/{{subject.id}}/comment" class="btn btn-info">Komment hozzáadása</a>
+    </div>
+</div>
 
+{% if (subject.teacher.email == currentUser.email) %}
+<div class="panel panel-default">
+    <div class="panel-heading">
+    <h2>Új csoport</h2>
+    <form class="form-horizontal" method="post">
+        {{ csrfField }}
+        <div class="form-group">
+        <label for="group_name" class="col-lg-2 control-label">Csoport neve</label>
+            <div class="col-lg-10">
+            <input type="text" class="form-control" id="group_name" name="group_name" placeholder="Csoport neve" value="{{old('group_name')}}">
+            </div>
+        </div>
 
-{% if (subject.teacher_id == currentUser.id) %}
-<p>Csoport hozzáadás ###</p>
-<a href="#" class="btn btn-default">
-    Szerkeszt
-</a>
-<a href="#" class="btn btn-danger">
-    Töröl
-</a>
+        <div class="form-group">
+            <div class="col-lg-10 col-lg-offset-2">
+            <button type="reset" class="btn btn-default">Mégsem</button>
+            <button type="submit" class="btn btn-primary">Küldés</button>
+            </div>
+        </div>
+    </form>
+    <h2>Tárgy opciók</h2>
+    <a href="/subject/{{subject.id}}/edit" class="btn btn-default">
+        Szerkeszt
+    </a>
+    <a href="/subject/{{subject.id}}/delete" class="btn btn-danger">
+        Töröl
+    </a>
+    <a href="/subject/{{subject.id}}/deleteComments" class="btn btn-danger">
+        Kommentek törlése
+    </a>
+    </div>
+</div>
 {% endif %}
+
+{% for group in groups %}
+<div class="col-lg-4 col-md-6 col-sm-12">
+    <div class="panel panel-primary">
+        <div class="panel-heading">{{ group.name }}
+            {% if (subject.teacher.email == currentUser.email) %}
+            <a href="/subject/{{subject.id}}/{{group.id}}/delete"><span class="badge pull-right">Törlés</span></a>
+            <a href="/subject/{{subject.id}}/{{group.id}}/edit"><span class="badge pull-right">Módosítás</span></a>
+            {% endif %}
+        </div>
+        <ul class="list-group">
+            {% for grs in group_students %}
+                {% if grs.group_id == group.id  %}
+                    <li class="list-group-item">{{grs.studentsOf.name}}</li>
+                {%endif%}
+            {%endfor%}
+        </ul>
+    </div>
+</div>
+{% endfor %}
 
 {% endblock %}

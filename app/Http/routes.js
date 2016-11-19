@@ -31,5 +31,18 @@ Route.post('/applyLecture', 'NeptunController.doApplyLecture').middleware('auth'
 Route.get('/addLecture', 'NeptunController.lecture').middleware('auth')
 Route.post('/addLecture', 'NeptunController.addLecture').middleware('auth')
 
-Route.get('/subject/:id', 'NeptunController.subjectShow')
+Route.get('/subject/:id', 'NeptunController.subjectShow').middleware('auth')
+Route.get('/subject/:id/delete', 'NeptunController.doDelete').middleware('auth')
 
+Route.post('/subject/:id/', 'NeptunController.addGroup').middleware('auth')
+
+Route.get('/subject/:id/comment', 'NeptunController.comment').middleware('auth')
+Route.get('/subject/:id/deleteComments', 'NeptunController.deleteComments').middleware('auth')
+Route.post('/subject/:id/comment', 'NeptunController.doComment').middleware('auth')
+
+Route.get('/subject/:id/dropSubject', 'NeptunController.dropSubject').middleware('auth')
+Route.get('/subject/:sub_id/:gro_id/edit', 'NeptunController.editGroup').middleware('auth')
+Route.post('/subject/:sub_id/:gro_id/edit', 'NeptunController.doEditGroup').middleware('auth')
+Route.get('/subject/:sub_id/:gro_id/delete', 'NeptunController.deleteGroup').middleware('auth')
+Route.get('/subject/:id/edit', 'NeptunController.editSubject').middleware('auth')
+Route.post('/subject/:id/edit', 'NeptunController.doEditSubject').middleware('auth')

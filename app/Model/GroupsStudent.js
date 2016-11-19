@@ -2,7 +2,7 @@
 
 const Lucid = use('Lucid')
 
-class GroupStudent extends Lucid {
+class GroupsStudent extends Lucid {
     groups(){
         return this.hasMany('App/Model/Group')
     }
@@ -16,4 +16,4 @@ class GroupStudent extends Lucid {
     }
 }
 
-module.exports = GroupStudent
+module.exports = GroupsStudent
