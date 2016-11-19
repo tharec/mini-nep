@@ -1,0 +1,22 @@
+{% extends "ind" %}
+
+{% block content %}
+<h2>{{ subject.name }}</h2>
+<p>Oktató: {{ subject.teacher.name }}</p>
+<h3>Kommentek</h3>
+<pre>
+{{ subject.comments }}
+</pre>
+
+
+{% if (subject.teacher_id == currentUser.id) %}
+<p>Csoport hozzáadás ###</p>
+<a href="#" class="btn btn-default">
+    Szerkeszt
+</a>
+<a href="#" class="btn btn-danger">
+    Töröl
+</a>
+{% endif %}
+
+{% endblock %}

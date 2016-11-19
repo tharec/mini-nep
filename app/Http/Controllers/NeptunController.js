@@ -23,9 +23,9 @@ class NeptunController {
         const teachers = yield Teacher.all()
 
         for(let subject of subjects) {
-            const tea = yield Database.select('id','name').from('teachers').where('id', subject.teacher_id);
+            const tea = yield Database.select('id','name','email').from('teachers').where('id', subject.teacher_id);
             subject.teachersOf = tea;
-            console.log(tea)
+            // console.log(tea)
         }
 
         const teas = yield Database.select('email').from('teachers')
@@ -35,7 +35,7 @@ class NeptunController {
             emails.push(i['email'])
         }
 
-        console.log(subjects.toJSON()[1].teachersOf[0]['id'])
+        // console.log(subjects.toJSON()[1].teachersOf[0]['id'])
 
         yield response.sendView('main', {
             students: students.toJSON(),
@@ -80,7 +80,6 @@ class NeptunController {
         const teacher_validation = yield Validator.validateAll(registerData, rule_box)
 
         if(teacher_validation.fails()){
-            console.log('You have no power here!')
             const stud = new Student()
 
             stud.name = registerData.username
@@ -188,6 +187,49 @@ class NeptunController {
         // console.log(teacher[0]['id'])
         // response.send(teacher)
         response.redirect('/')
+    }
+
+    * applyLecture (request, response) {
+        const subjects = yield Subject.all()
+        const teachers = yield Teacher.all()
+        const teas = yield Database.select('email').from('teachers')
+        let emails = []
+        for(let i of teas){
+            emails.push(i['email'])
+        }
+
+        for(let subject of subjects) {
+            const tea = yield Database.select('id','name','email').from('teachers').where('id', subject.teacher_id);
+            subject.teachersOf = tea;
+        }
+
+        yield response.sendView('applyLecture',{
+            emails: emails,
+            teachers: teachers.toJSON(),
+            subjects: subjects.toJSON()
+        });
+    }
+
+    * doApplyLecture (request, response){
+
+    }
+
+    * subjectShow (request, response){
+        const id = request.param('id');
+        const subject = yield Subject.find(id);
+        yield subject.related('teacher').load();
+        
+        const teas = yield Database.select('email').from('teachers')
+        
+        let emails = []
+        for(let i of teas){
+            emails.push(i['email'])
+        }
+
+        yield response.sendView('subjectProfile',{
+            emails: emails,
+            subject: subject.toJSON()
+        });
     }
 }
 

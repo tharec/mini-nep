@@ -7,35 +7,71 @@
 {% block content %}
 <h2>Üdv, {{ currentUser.username }}!</h2>
 
-<!--<div class="row">
-    {% for subject in subjects %}
-    <div class="panel panel-primary">
-        <div class="panel-heading">{{ subject.name }}</div>
-        <p>{{ subject.teachersOf[0].name }}</p>
-    </div>
-    {% endfor %}
-</div>-->
-
-<div class="row">
-
-  {% for subject in subjects %}
-  <div class="col-lg-4 col-md-6 col-sm-12">
-    <div class="panel panel-primary">
-      <div class="panel-heading">{{ subject.name }} ( {{ subject.teachersOf[0]['name'] }} )</div>
-      <ul class="list-group">
-        {% for student in students %}
-        <li class="list-group-item">
-          <a href="/student/{{ student.id }}">
-            {{ student.name }}
-          </a>
-        </li>
-        {% endfor %}
-      </ul>
-    </div>
+{% if currentUser.email in emails %}
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title">Tanított tárgyak</h3>
   </div>
-  {% endfor %}
-
+  <div class="panel-body">
+    <table class="table table-striped table-hover ">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Tárgy neve</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% set x = 1 %}
+        {% for subject in subjects %}
+          {% if currentUser.email == subject.teachersOf[0]['email'] %}
+          <tr>
+            <td>{{ x }}</td>
+            <td>{{ subject.name }}</td>
+            <td><a href="/subject/{{ subject.id }}">Tárgy adatlap</a></td>
+            {% set x = x + 1 %}
+          </tr>
+          {% endif %}
+        {% endfor %}
+      </tbody>
+    </table> 
+  </div>
 </div>
+{% else %}
+
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title">Felvett tantárgyak</h3>
+  </div>
+  <div class="panel-body">
+    <table class="table table-striped table-hover ">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Tárgy neve</th>
+          <th>Tanár neve</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% set x = 1 %}
+        {% for subject in subjects %}
+          {% if currentUser.email == subject.teachersOf[0]['email'] %}
+          <tr>
+            <td>{{ x }}</td>
+            <td>{{ subject.name }}</td>
+            <td>{{ subject.teachersOf[0]['name'] }}</td>
+            <td><a href="/subject/{{ subject.id }}">Tárgy adatlap</a></td>
+            {% set x = x + 1 %}
+          </tr>
+          {% endif %}
+        {% endfor %}
+      </tbody>
+    </table> 
+  </div>
+</div>
+
+{% endif %}
 
 <!--<p>{{subjects|dump}}</p>-->
 <!--<p>{{emails|dump}}</p>-->

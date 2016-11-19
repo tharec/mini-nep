@@ -25,11 +25,11 @@ Route.get('/register', 'NeptunController.register')
 Route.post('/register', 'NeptunController.doRegister')
 Route.get('/logout', 'NeptunController.doLogout')
 
-Route.get('/targyfelvetel', 'NeptunController.lecture')
-Route.post('/targyfelvetel', 'NeptunController.addLecture')
+Route.get('/applyLecture', 'NeptunController.applyLecture').middleware('auth')
+Route.post('/applyLecture', 'NeptunController.doApplyLecture').middleware('auth')
 
-Route.get('/addLecture', 'NeptunController.lecture')
-Route.post('/addLecture', 'NeptunController.addLecture')
+Route.get('/addLecture', 'NeptunController.lecture').middleware('auth')
+Route.post('/addLecture', 'NeptunController.addLecture').middleware('auth')
 
-Route.post('/student/:id', 'NeptunController.studentProfile')
+Route.get('/subject/:id', 'NeptunController.subjectShow')
 
