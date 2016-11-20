@@ -129,20 +129,26 @@ Az oldalon a különböző szerepkörökhöz eltérő funkciók érhetőek el. M
 
 ##Oldaltervek
 
-Regisztráció
+**Regisztráció**
+
 ![reg](https://cloud.githubusercontent.com/assets/22147821/20459271/681cec5a-aebb-11e6-8e35-c000c81130e1.PNG)
 
-Bejelentkezés
+**Bejelentkezés**
+
 ![login](https://cloud.githubusercontent.com/assets/22147821/20459270/681cba00-aebb-11e6-9618-71c2386e7e6b.PNG)
 
-Tantárgy oldal
+**Tantárgy oldal**
+
 ![subject](https://cloud.githubusercontent.com/assets/22147821/20459269/681c0d08-aebb-11e6-9bfe-d41dc9804e5e.PNG)
 
-Új tantárgy felvétele
+**Új tantárgy felvétele**
+
 ![new_sub](https://cloud.githubusercontent.com/assets/22147821/20459268/681641e8-aebb-11e6-98bf-89d14c735e87.PNG)
 
-Főoldal(tanári)
+**Főoldal(tanári)**
+
 ![lobby](https://cloud.githubusercontent.com/assets/22147821/20459267/6813aaa0-aebb-11e6-9ee7-371c6145cbc1.PNG)
 
-Főoldal(diák)
+**Főoldal(diák)**
+
 ![student_lobby](https://cloud.githubusercontent.com/assets/22147821/20459316/d77e1686-aebc-11e6-9cc9-c2566d814033.PNG)
