@@ -7,10 +7,11 @@
 {% block content %}
 <h2 class="col-md-7 col-md-offset-2">Üdv, {{ currentUser.username }}!</h2>
 
-{% if currentUser.email in emails %}
 <div class="col-md-7 col-md-offset-2">
 <div class="panel panel-info">
   <div class="panel-heading">
+
+{% if currentUser.email in emails %}
     <h3 class="panel-title">Tanított tantárgyak</h3>
   </div>
   <div class="panel-body">
@@ -71,10 +72,8 @@
   </div>
 </div>
 </div>
-{% else %}
 
-<div class="panel panel-info">
-  <div class="panel-heading">
+{% else %}
     <h3 class="panel-title">Felvett tantárgyak</h3>
   </div>
   <div class="panel-body">
