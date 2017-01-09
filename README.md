@@ -152,3 +152,27 @@ Az oldalon a különböző szerepkörökhöz eltérő funkciók érhetőek el. M
 **Főoldal(diák)**
 
 ![student_lobby](https://cloud.githubusercontent.com/assets/22147821/20459316/d77e1686-aebc-11e6-9cc9-c2566d814033.PNG)
+
+##Weboldal Progresszív Fejlesztése
+A weblapok kiegészítésében a nunjucks fájlokban kellett minimális módosításokat végrehajtani, melyek "id" illetve helyenként egy-egy kiegészítőosztályba sorolást jelentett. Ezeknek akkor lesznagy szerepük, mikor megpróbáljuk elérni ezeket a modulokat a javascript kódokból. Továbbá script tag-ek között fel kellett sorolni, hogy melyik lap milyen scripteket fog használni.
+
+A következő scriptekkel egészült ki az alkalmazás: **timer.js**, **new_comment.js**, **edit_group.js**, **delete_group.js**
+
+###timer.js
+Ebben a fájlban van az időzítő/kiléptető rendszer. Ez másodpercenként újrahívja sajátmagát, azaz a timeout() függvényt, minden másodpercben, ha pedig eléri a 0:0-t, azaz lejár az idő, akkor kijelentkezteti a felhasználót.
+
+###new_comment.js
+Ez a kód rész figyeli, hogy mikor kattint rá valaki az új komment hozzáadása gombra. Ha ilyen esemény következik be, akkor új felugróablakot definiál a kód, ha még nincsen ilyen, majd az új komment hozzáadására szolgáló oldalt betölti a felugróablakba. Majd az új komment űrlapjának elküldésekor egy ajax hívás megy végbe, amely egy újonnan hozzáadott route-on keresztül hajtja végre a szerveroldali módosításokat. Ha sikeresen végbement minden, akkor az oldalrész(komment szekció) újratöltődik lap újratöltés nélkül.
+
+###edit_group.js
+Ez a kód hasonló futást eredményez, mint az új kommentet hozzáadó **new_comment.js** kódrészlet, azzal a nagy külömbséggel, hogy a szerveroldalon más funkciókat lát el.
+
+###delete_group.js
+Ez a kódrészlet az összes csoport törlés gombjára egy eseményfigyelőt helyez, amivel számontartja, hogy érkezik-e kattintás esemény a gombokra. Ha igen, akkor egy megerősítő ablak ugrik fel, melyben a felhasználót megkérdezi a program, hogy biztosan törölni szeretné-e a csoportot. Az elfogadás gombra kattintva egy **DELETE** ajax hívás megy el az egyik route-ra, ami kitrli az összes hozzátartozó információt az adatbázisból, majd kitörli a csoportot is az adatbázisból.
+
+##Tesztelések
+Az alkalmazást a Mozzila Firefox egyik bővítményével lett tesztelve, a Selenium IDE nevezetű kiegészítővel. Ez egy grafikus tesztelőfelület, amelyben tesztsorozatokat lehet létrehozni, majd lefuttatni a webes alkalmazáson.
+
+###Telepítése és használata
+A Firefox bővítménytárából könnyedén letölthető és telepíthető, majd a böngésző újraindítása után elindítható a menüből. Az indulás után a tesztfájlok betöltését az Open paranccsal lehet elérni. A teszteket ajánlott külön-külön futtatni a bejelentkező felületből, hogy helyes eredményekkel szolgáljon a teszt.
+4 teszt lett mellékelve a **tests** mappában.
