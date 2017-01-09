@@ -490,6 +490,68 @@ class NeptunController {
         
         yield response.redirect('/subject/' + sub_id)
     }
+
+    * ajaxComment (request, response){
+        const data = request.except('_csrf')
+        const id = request.param('id')
+        const subject = yield Subject.find(id)
+
+        subject.comments = subject.comments + '\n' + request.currentUser.username + ': ' + data.comments
+        
+        
+        try{
+            const saved = yield subject.save()
+            if(saved){
+                response.send({ success: true })
+                return
+            }
+        } catch (err){
+            response.send({ success: false })
+        }
+    }
+
+    * ajaxDeleteGr (request, response) {
+        const sub_id = request.param('sub_id');
+        const gro_id = request.param('gro_id');
+
+        if(gro_id){
+            yield Database.table('groups_students').whereRaw('subject_id = ? and group_id = ?',[sub_id, gro_id]).delete()
+            yield Database.table('groups').where('id',gro_id).delete()
+            
+            response.ok({
+                success: true
+            })
+            return
+        }
+        response.notFound('No group')
+    }
+
+    * ajaxEditGr (request,response){
+        const sub_id = request.param('sub_id');
+        const gro_id = request.param('gro_id');
+        const data = request.except('_csrf')
+
+        const rules = {
+            group_name: 'required|min:1|max:32|regex:[a-zA-Z0-9 áÁéÉőŐúÚűŰóÓüÜöÖíÍ]+'
+        };
+
+        try{
+            const validation = yield Validator.validateAll(data, rules)
+
+            const group = yield Group.find(gro_id)
+
+            group.name = data.group_name
+            group.comments = data.comments
+            const saved = yield group.save()
+
+            if(saved){
+                response.send({ success: true })
+                return
+            }
+        } catch (err) {
+            response.send({ success: false })
+        }
+    }
 }
 
 module.exports = NeptunController

@@ -1,15 +1,23 @@
 {% extends "ind" %}
 
+{% block scripts %}
+<script src="/scripts/new_comment.js"></script>
+<script src="/scripts/delete_group.js"></script>
+<script src="/scripts/edit_group.js"></script>
+{% endblock %}
+
 {% block content %}
 <h2>{{ subject.name }}</h2>
 <p>Oktató: {{ subject.teacher.name }}</p>
 <div class="panel panel-default">
     <div class="panel-heading">
     <h3>Kommentek</h3>
-    <pre>
-    {{ subject.comments }}
-    </pre>
-    <a href="/subject/{{subject.id}}/comment" class="btn btn-info">Komment hozzáadása</a>
+    <div id="comment_section">
+        <pre>
+        {{ subject.comments }}
+        </pre>
+    </div>
+    <a href="/subject/{{subject.id}}/comment" class="btn btn-info" id="btnComment">Komment hozzáadása</a>
     </div>
 </div>
 
@@ -47,13 +55,17 @@
 </div>
 {% endif %}
 
+<div id="group-divs">
 {% for group in groups %}
 <div class="col-lg-4 col-md-6 col-sm-12">
     <div class="panel panel-primary">
         <div class="panel-heading">{{ group.name }}
             {% if (subject.teacher.email == currentUser.email) %}
-            <a href="/subject/{{subject.id}}/{{group.id}}/delete"><span class="badge pull-right">Törlés</span></a>
-            <a href="/subject/{{subject.id}}/{{group.id}}/edit"><span class="badge pull-right">Módosítás</span></a>
+            
+            {{ csrfField | safe }}
+
+            <a href="/subject/{{subject.id}}/{{group.id}}/delete" class="btn-delete-gr"><span class="badge pull-right">Törlés</span></a>
+            <a href="/subject/{{subject.id}}/{{group.id}}/edit" class="btn-edit-gr"><span class="badge pull-right">Módosítás</span></a>
             {% endif %}
         </div>
         <ul class="list-group">
@@ -65,6 +77,21 @@
         </ul>
     </div>
 </div>
-{% endfor %}
 
+{% endfor %}
+</div>
+<div class="modal fade confirm-modal" id="modalDelete" tabindex="-1" role="dialog">
+                <div class="modal-dialog modal-sm" role="document">
+                    <div class="modal-content">
+                    <div class="modal-body">
+                        Biztosan törölni szeretnéd?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success modal-ok" data-dismiss="modal">OK</button>
+                        <button type="button" class="btn btn-danger modal-cancel" data-dismiss="modal">Mégse</button>
+                    </div>
+                    </div>
+                </div>
+            </div>
+<span class="help-block"></span>
 {% endblock %}

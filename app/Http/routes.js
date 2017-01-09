@@ -46,3 +46,10 @@ Route.post('/subject/:sub_id/:gro_id/edit', 'NeptunController.doEditGroup').midd
 Route.get('/subject/:sub_id/:gro_id/delete', 'NeptunController.deleteGroup').middleware('auth')
 Route.get('/subject/:id/edit', 'NeptunController.editSubject').middleware('auth')
 Route.post('/subject/:id/edit', 'NeptunController.doEditSubject').middleware('auth')
+
+Route.group('ajax', function () {
+    Route.get('/logout', 'NeptunController.doLogout')
+    Route.post('/subject/:id/comment', 'NeptunController.ajaxComment').middleware('auth')
+    Route.delete('/subject/:sub_id/:gro_id/delete', 'NeptunController.ajaxDeleteGr').middleware('auth')
+    Route.post('/subject/:sub_id/:gro_id/edit', 'NeptunController.ajaxEditGr').middleware('auth')
+  }).prefix('/ajax')
