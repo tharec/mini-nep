@@ -170,6 +170,9 @@ Ez a kód hasonló futást eredményez, mint az új kommentet hozzáadó **new_c
 ###delete_group.js
 Ez a kódrészlet az összes csoport törlés gombjára egy eseményfigyelőt helyez, amivel számontartja, hogy érkezik-e kattintás esemény a gombokra. Ha igen, akkor egy megerősítő ablak ugrik fel, melyben a felhasználót megkérdezi a program, hogy biztosan törölni szeretné-e a csoportot. Az elfogadás gombra kattintva egy **DELETE** ajax hívás megy el az egyik route-ra, ami kitrli az összes hozzátartozó információt az adatbázisból, majd kitörli a csoportot is az adatbázisból.
 
+###Kommentelés szekvenciája
+![commenting](https://cloud.githubusercontent.com/assets/22147821/21785895/bb5a094c-d6c1-11e6-9506-c4d77250d077.PNG)
+
 ##Tesztelések
 Az alkalmazást a Mozzila Firefox egyik bővítményével lett tesztelve, a Selenium IDE nevezetű kiegészítővel. Ez egy grafikus tesztelőfelület, amelyben tesztsorozatokat lehet létrehozni, majd lefuttatni a webes alkalmazáson.
 
