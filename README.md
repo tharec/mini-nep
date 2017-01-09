@@ -58,7 +58,6 @@ Az oldalon a különböző szerepkörökhöz eltérő funkciók érhetőek el. M
 > - Regisztráció
 > - Tárgyfelvétel:
 >      + Csoportba jelentkezés
->      + Csoport leadása
 > - Tárgyak listázása
 > - Csoportok listázása
 > 
@@ -77,31 +76,50 @@ Az oldalon a különböző szerepkörökhöz eltérő funkciók érhetőek el. M
 > - Csoport hallgatóinak listázása
 
 **Végpont tervezet:**
-> GET / :főoldal és bejelentkező oldal hibrid
+> GET / :főoldal
 
-> POST / :belépési adatok küldése
+> GET /login :belépési pont
 
-> GET /reg :regisztrációs oldal
+> POST /login :belépés
 
-> POST /reg :regisztráció elküldése
+> GET /register :regisztrációs oldal
 
-> POST /subject/rec :tárgyfelvétel
+> POST /register :regisztráció elküldése
 
-> POST /subject/add :tárgy hozzáadása
+> GET /logout :kijeletkezés
 
-> GET /subject/list :tárgy hallgatóinak listázása
+> GET /applyLecture :tárgyfelvétel
 
-> GET /subject/:id/comment :az adott tantárgy megjegyzésének szerkesztése
+> POST /applyLecture :adatok véglegesítése
 
-> GET /group/list :csoport hallgatóinak listázása
+> GET /addLecture :tárgy hozzáadása
 
-> POST /group/join :csoportba jelentkezés
+> POST /addLecture :adatok véglegesítése
 
-> GET /group/:id/comment :az adott csoport megjegyzésének szerkesztése
+> GET /subject/:id :tantárgy oldala
 
-> POST /subject/del/:id :tantárgy törlése
+> GET /subject/:id/delete :tantárgy törlése
 
-> POST /group/del/:id :csoport törlése
+> POST /subject/:id :csoport felvétele
+
+> GET /subject/:id/comment :komment írása a tantárgyhoz
+
+> POST /subject/:id/comment :adatok elküldése
+
+> GET /subject/:id/deleteComments :összekomment törlése
+
+> GET /subject/:id/edit :tantárgy adatainak szerkesztése
+
+> POST /subject/:id/edit :adatok elküldése/végelgesítés
+
+> GET /subject/:id/dropSubject :tantárgy leadása
+
+> GET /subject/:sub_id/:gro_id/edit :csoport adatainak szerkesztése
+
+> POST /subject/:sub_id/:gro_id/edit :adatok elküldése/végelgesítés
+
+> GET /subject/:sub_id/:gro_id/delete :csoport törlése
+
 
 ##Adatmodell
 ![model](https://cloud.githubusercontent.com/assets/22147821/19417962/fdeedc7e-93b9-11e6-8b91-977ea12d1f99.png)
@@ -110,6 +128,27 @@ Az oldalon a különböző szerepkörökhöz eltérő funkciók érhetőek el. M
 ![ab_model](https://cloud.githubusercontent.com/assets/22147821/19417963/fdf23c84-93b9-11e6-86c4-a150440bb9b0.png)
 
 ##Oldaltervek
-![reg](https://cloud.githubusercontent.com/assets/22147821/19418146/762b4c1e-93be-11e6-937b-864c3a42ec72.jpg)
-![login](https://cloud.githubusercontent.com/assets/22147821/19418144/76298302-93be-11e6-9aaa-deac3eaa8d8c.jpg)
-![main](https://cloud.githubusercontent.com/assets/22147821/19418145/762aca64-93be-11e6-973b-cec44e27bdda.jpg)
+
+**Regisztráció**
+
+![reg](https://cloud.githubusercontent.com/assets/22147821/20459271/681cec5a-aebb-11e6-8e35-c000c81130e1.PNG)
+
+**Bejelentkezés**
+
+![login](https://cloud.githubusercontent.com/assets/22147821/20459270/681cba00-aebb-11e6-9618-71c2386e7e6b.PNG)
+
+**Tantárgy oldal**
+
+![subject](https://cloud.githubusercontent.com/assets/22147821/20459269/681c0d08-aebb-11e6-9bfe-d41dc9804e5e.PNG)
+
+**Új tantárgy felvétele**
+
+![new_sub](https://cloud.githubusercontent.com/assets/22147821/20459268/681641e8-aebb-11e6-98bf-89d14c735e87.PNG)
+
+**Főoldal(tanári)**
+
+![lobby](https://cloud.githubusercontent.com/assets/22147821/20459267/6813aaa0-aebb-11e6-9ee7-371c6145cbc1.PNG)
+
+**Főoldal(diák)**
+
+![student_lobby](https://cloud.githubusercontent.com/assets/22147821/20459316/d77e1686-aebc-11e6-9cc9-c2566d814033.PNG)
